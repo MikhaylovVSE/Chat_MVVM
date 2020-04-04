@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat.GUI.Views"
+        xmlns:vm="clr-namespace:Chat.GUI.ViewModels"
+        xmlns:m="clr-namespace:Chat.Core;assembly=Chat.Core"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="391" Width="385.91">
+  <Window.DataContext>
+    <vm:MainWindowViewModel />
+  </Window.DataContext>
     <Grid>
-        
-    </Grid>
+    <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" VerticalAlignment="Top" Width="358">
+      <ListBox.ItemTemplate>
+        <DataTemplate DataType="{x:Type m:Message}">
+          <Border BorderThickness="1.5" BorderBrush="DarkGray" Padding="4">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Text="{Binding Author, StringFormat={}[{0}]: }" />
+              <TextBlock Text="{Binding Text}" />
+              <TextBlock Text="{Binding Timestamp}" Margin="10,0,0,0" Foreground="LightGray" />
+            </StackPanel>
+          </Border>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <Button Content="Add message" Command="{Binding AddMessageCommand}" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="75"/>
+  </Grid>
 </Window>
