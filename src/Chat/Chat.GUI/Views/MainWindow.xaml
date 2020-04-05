@@ -12,19 +12,21 @@
     <vm:MainWindowViewModel />
   </Window.DataContext>
     <Grid>
-    <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" VerticalAlignment="Top" Width="358">
+    <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" VerticalAlignment="Top" Width="358"
+             SelectedItem="{Binding SelectedMessage}">
       <ListBox.ItemTemplate>
         <DataTemplate DataType="{x:Type m:Message}">
           <Border BorderThickness="1.5" BorderBrush="DarkGray" Padding="4">
-            <StackPanel Orientation="Horizontal">
-              <TextBlock Text="{Binding Author, StringFormat={}[{0}]: }" />
-              <TextBlock Text="{Binding Text}" />
-              <TextBlock Text="{Binding Timestamp}" Margin="10,0,0,0" Foreground="LightGray" />
+            <StackPanel Orientation="Vertical">
+              <TextBlock Text="{Binding Author, StringFormat={}[{0}]:}" />
+              <Label Content="{Binding Text}" Margin="10,0,0,0" />
+              <TextBlock Text="{Binding Timestamp}" Margin="10,0,0,0" Foreground="Gray" />
             </StackPanel>
           </Border>
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
     <Button Content="Add message" Command="{Binding AddMessageCommand}" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="75"/>
+    <Button Content="Edit message" Command="{Binding EditMessageCommand}" HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" Width="76"/>
   </Grid>
 </Window>

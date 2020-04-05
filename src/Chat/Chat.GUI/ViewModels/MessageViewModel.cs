@@ -46,7 +46,7 @@ namespace Chat.GUI.ViewModels
 
             Author = message.Author;
             Text = message.Text;
-            Timestamp = message.Timestamp.ToShortTimeString();
+            Timestamp = message.Timestamp.ToLongTimeString();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Chat.GUI.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public ObservableCollection<MessageViewModel> Messages { get; set; }
+        #region Commands
 
         private ICommand _addMessageCommand;
         public ICommand AddMessageCommand
@@ -23,6 +23,32 @@ namespace Chat.GUI.ViewModels
             }
         }
 
+        private ICommand _editMessageCommand;
+        public ICommand EditMessageCommand
+        {
+            get
+            {
+                if (_editMessageCommand == null)
+                    _editMessageCommand = new RelayCommand(_ => { EditMessage(); });
+
+                return _editMessageCommand;
+            }
+        }
+        #endregion
+
+        public ObservableCollection<MessageViewModel> Messages { get; set; }
+
+        private MessageViewModel _selectedMessage;
+        public MessageViewModel SelectedMessage
+        {
+            get { return _selectedMessage; }
+            set
+            {
+                _selectedMessage = value;
+                OnPropertyChanged("SelectedMessage");
+            }
+        }
+
         public MainWindowViewModel()
         {
             Messages = new ObservableCollection<MessageViewModel>();
@@ -32,6 +58,11 @@ namespace Chat.GUI.ViewModels
         {
             var sampleMessage = new Message("Anonymous", "Big Brother is watching you.", DateTime.Now);
             Messages.Add(new MessageViewModel(sampleMessage));
+        }
+
+        private void EditMessage()
+        {
+            SelectedMessage.Text += " edited";
         }
     }
 }
