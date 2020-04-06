@@ -34,6 +34,9 @@ namespace Chat.GUI.ViewModels
                 return _editMessageCommand;
             }
         }
+        #endregion
+
+        #region Properties
 
         private string _messageText;
         public string MessageText
@@ -45,9 +48,6 @@ namespace Chat.GUI.ViewModels
                 OnPropertyChanged("MessageText");
             }
         }
-        #endregion
-
-        public ObservableCollection<MessageViewModel> Messages { get; set; }
 
         private MessageViewModel _selectedMessage;
         public MessageViewModel SelectedMessage
@@ -59,6 +59,9 @@ namespace Chat.GUI.ViewModels
                 OnPropertyChanged("SelectedMessage");
             }
         }
+        
+        public ObservableCollection<MessageViewModel> Messages { get; set; }
+        #endregion
 
         public MainWindowViewModel()
         {
@@ -72,7 +75,6 @@ namespace Chat.GUI.ViewModels
         }
 
         private void EditMessage()
-
         {
             SelectedMessage.Text += " edited";
         }
