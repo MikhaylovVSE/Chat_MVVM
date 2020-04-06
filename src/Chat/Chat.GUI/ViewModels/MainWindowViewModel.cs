@@ -61,10 +61,20 @@ namespace Chat.GUI.ViewModels
         }
 
         private void EditMessage()
+
         {
             SelectedMessage.Text += " edited";
         }
 
-        public string MessageText { get; set; }
+        private string _messageText;
+        public string MessageText
+        {
+            get { return _messageText; }
+            set
+            {
+                _messageText = value;
+                OnPropertyChanged("MessageText");
+            }
+        }
     }
 }

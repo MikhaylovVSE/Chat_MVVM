@@ -13,14 +13,14 @@
     <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" VerticalAlignment="Top" Width="358"
              SelectedItem="{Binding SelectedMessage}">
       <ListBox.ItemTemplate>
-        <DataTemplate DataType="{x:Type vm:MessageViewModel}">
-          <Border BorderThickness="1.5" BorderBrush="DarkGray" Padding="4">
-            <StackPanel Orientation="Vertical">
-              <TextBlock Text="{Binding Author, StringFormat={}[{0}]:}" />
-              <TextBlock Text="{Binding Text}" Margin="10,0,0,0" />
-              <TextBlock Text="{Binding Timestamp}" Margin="10,0,0,0" Foreground="Gray" />
-            </StackPanel>
-          </Border>
+         <DataTemplate DataType="{x:Type vm:MessageViewModel}">
+              <Border BorderThickness="1.5" BorderBrush="DarkGray" Padding="4">
+                <StackPanel Orientation="Vertical">
+                  <TextBlock Text="{Binding Author, StringFormat={}[{0}]:}" />
+                  <TextBlock Text="{Binding Text}" Margin="10,0,0,0" />
+                  <TextBlock Text="{Binding Timestamp}" Margin="10,0,0,0" Foreground="Gray" />
+                </StackPanel>
+              </Border>
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
