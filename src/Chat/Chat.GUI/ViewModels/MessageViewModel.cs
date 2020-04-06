@@ -40,6 +40,7 @@ namespace Chat.GUI.ViewModels
             }
         }
 
+
         public MessageViewModel(Message message)
         {
             this._message = message;

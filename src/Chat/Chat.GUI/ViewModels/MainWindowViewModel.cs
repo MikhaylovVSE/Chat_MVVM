@@ -36,7 +36,18 @@ namespace Chat.GUI.ViewModels
         }
         #endregion
 
-        public ObservableCollection<MessageViewModel> Messages { get; set; }
+        #region Properties
+
+        private string _messageText;
+        public string MessageText
+        {
+            get { return _messageText; }
+            set
+            {
+                _messageText = value;
+                OnPropertyChanged("MessageText");
+            }
+        }
 
         private MessageViewModel _selectedMessage;
         public MessageViewModel SelectedMessage
@@ -48,6 +59,9 @@ namespace Chat.GUI.ViewModels
                 OnPropertyChanged("SelectedMessage");
             }
         }
+        
+        public ObservableCollection<MessageViewModel> Messages { get; set; }
+        #endregion
 
         public MainWindowViewModel()
         {
@@ -56,8 +70,9 @@ namespace Chat.GUI.ViewModels
 
         private void AddSampleMessage()
         {
-            var sampleMessage = new Message("Anonymous", "Big Brother is watching you.", DateTime.Now);
+            var sampleMessage = new Message("Anonymous", MessageText, DateTime.Now);
             Messages.Add(new MessageViewModel(sampleMessage));
+            MessageText = "";
         }
 
         private void EditMessage()
