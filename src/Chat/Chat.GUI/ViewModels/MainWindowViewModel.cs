@@ -72,6 +72,7 @@ namespace Chat.GUI.ViewModels
         {
             var sampleMessage = new Message("Anonymous", MessageText, DateTime.Now);
             Messages.Add(new MessageViewModel(sampleMessage));
+            MessageText = "";
         }
 
         private void EditMessage()
