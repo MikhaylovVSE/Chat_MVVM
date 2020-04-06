@@ -64,5 +64,7 @@ namespace Chat.GUI.ViewModels
         {
             SelectedMessage.Text += " edited";
         }
+
+        public string MessageText { get; set; }
     }
 }
