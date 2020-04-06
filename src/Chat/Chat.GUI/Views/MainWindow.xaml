@@ -26,7 +26,7 @@
         </ListBox>
         <Button Content="Add message" Command="{Binding AddMessageCommand}" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Edit message" Command="{Binding EditMessageCommand}" HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" Width="76"/>
-        <TextBox Text="{Binding MessageText}" HorizontalAlignment="Left" Height="23" Margin="10,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <TextBox Name="txtBox1" Text="{Binding MessageText}" HorizontalAlignment="Left" Height="23" Margin="10,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
 
     </Grid>
 </Window>

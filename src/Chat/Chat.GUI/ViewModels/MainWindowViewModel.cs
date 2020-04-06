@@ -56,7 +56,7 @@ namespace Chat.GUI.ViewModels
 
         private void AddSampleMessage()
         {
-            var sampleMessage = new Message("Anonymous", "Big Brother is watching you.", DateTime.Now);
+            var sampleMessage = new Message("Anonymous", MessageText, DateTime.Now);
             Messages.Add(new MessageViewModel(sampleMessage));
         }
 
@@ -67,6 +67,6 @@ namespace Chat.GUI.ViewModels
         }
 
         
-        public string MessageText { get; set; }
+        public string MessageText {get; set;}
     }
 }
