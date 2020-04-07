@@ -34,6 +34,18 @@ namespace Chat.GUI.ViewModels
                 return _editMessageCommand;
             }
         }
+
+        private ICommand _logInCommand;
+        public ICommand LogInCommand
+        {
+            get
+            {
+                if (_logInCommand == null)
+                    _logInCommand = new RelayCommand(_ => { LogIn(); });
+
+                return _logInCommand;
+            }
+        }
         #endregion
 
         #region Properties
@@ -78,6 +90,11 @@ namespace Chat.GUI.ViewModels
         private void EditMessage()
         {
             SelectedMessage.Text += " edited";
+        }
+
+        private void LogIn()
+        {
+
         }
     }
 }
