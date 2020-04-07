@@ -3,6 +3,7 @@ using Chat.GUI.MVVM;
 using Chat.GUI.MVVM.Commands;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows.Input;
 
 namespace Chat.GUI.ViewModels
@@ -34,6 +35,19 @@ namespace Chat.GUI.ViewModels
                 return _editMessageCommand;
             }
         }
+
+        private ICommand _logInCommand;
+        public ICommand LogInCommand
+        {
+            get
+            {
+                if (_logInCommand == null)
+                    _logInCommand = new RelayCommand(_ => { LogIn(); });
+
+                return _logInCommand;
+            }
+        }
+
         #endregion
 
         #region Properties
@@ -59,7 +73,7 @@ namespace Chat.GUI.ViewModels
                 OnPropertyChanged("SelectedMessage");
             }
         }
-        
+
         public ObservableCollection<MessageViewModel> Messages { get; set; }
         #endregion
 
@@ -78,6 +92,11 @@ namespace Chat.GUI.ViewModels
         private void EditMessage()
         {
             SelectedMessage.Text += " edited";
+        }
+
+        private void LogIn()
+        { 
+            
         }
     }
 }
