@@ -10,7 +10,7 @@
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
-        <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="275" Margin="10,10,0,0" VerticalAlignment="Top" Width="361"
+        <ListBox ItemsSource="{Binding Messages}" HorizontalAlignment="Left" Height="260" Margin="10,30,0,0" VerticalAlignment="Top" Width="361"
              SelectedItem="{Binding SelectedMessage}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type vm:MessageViewModel}">
@@ -27,6 +27,9 @@
         <Button Content="Add message" Command="{Binding AddMessageCommand}" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Edit message" Command="{Binding EditMessageCommand}" HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" Width="76"/>
         <TextBox Name="txtBox1" Text="{Binding MessageText}" HorizontalAlignment="Left" Height="23" Margin="10,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Menu HorizontalAlignment="Left" Height="20" Margin="10,5,0,0" VerticalAlignment="Top" Width="76">
+            <MenuItem Header="Log In" Command="{Binding LogInCommand}" Width="76"/>
+        </Menu>
 
     </Grid>
 </Window>
