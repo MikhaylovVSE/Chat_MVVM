@@ -15,5 +15,21 @@ namespace Chat.Core
             Text = text;
             Timestamp = timestamp;
         }
+
+        
     }
+
+    public class User
+    {
+        public string Nickname { get; set; }
+        public UserState State { get; set; }
+
+        enum UserState
+        {
+            Available,
+            Offline,
+            Away
+        };
+    }
+
 }
