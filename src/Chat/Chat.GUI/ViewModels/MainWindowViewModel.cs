@@ -1,6 +1,7 @@
 ﻿using Chat.Core;
 using Chat.GUI.MVVM;
 using Chat.GUI.MVVM.Commands;
+using Chat.GUI.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -94,6 +95,8 @@ namespace Chat.GUI.ViewModels
 
         private void LogIn()
         {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
 
         }
     }
