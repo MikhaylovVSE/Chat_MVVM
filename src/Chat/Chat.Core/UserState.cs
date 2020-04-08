@@ -8,14 +8,13 @@ namespace Chat.Core
 {
     public class User
     {
-        private UserState State { get; set; } //почему здесь модификатор private?
+        public UserState State { get; set; }
 
-        enum UserState
+        public enum UserState
         {
             Available,
             Offline,
             Away
         };
     }
-}
 }
