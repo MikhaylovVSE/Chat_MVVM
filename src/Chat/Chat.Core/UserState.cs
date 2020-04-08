@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chat.Core
+﻿namespace Chat.Core
 {
-    public class User
+    public enum UserState
     {
-        public UserState State { get; set; }
-
-        public enum UserState
-        {
-            Available,
-            Offline,
-            Away
-        };
+        Available,
+        Offline,
+        Away
     }
 }
